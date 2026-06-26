@@ -278,3 +278,10 @@ afterEvaluate {
         }
     }
 }
+
+gradle.projectsEvaluated {
+    def releasePub = publishing.publications.findByName("release")
+    if (releasePub) {
+        releasePub.artifacts.removeAll { it.extension == 'asc' }
+    }
+}
