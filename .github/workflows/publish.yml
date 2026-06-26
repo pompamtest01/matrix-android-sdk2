@@ -18,7 +18,7 @@ jobs:
           java-version: '21'
           distribution: 'corretto'
       - name: Publish
-        run: ./gradlew :matrix-sdk-android:publish
+        run: ./gradlew :matrix-sdk-android:publish -x signMavenPublication
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
