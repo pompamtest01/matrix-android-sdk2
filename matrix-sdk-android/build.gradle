@@ -256,6 +256,10 @@ dependencies {
     androidTestUtil libs.androidx.orchestrator
 }
 
+signing {
+    required { false }
+}
+
 afterEvaluate {
     publishing {
         publications {
@@ -276,12 +280,5 @@ afterEvaluate {
                 }
             }
         }
-    }
-}
-
-gradle.projectsEvaluated {
-    def releasePub = publishing.publications.findByName("release")
-    if (releasePub) {
-        releasePub.artifacts.removeAll { it.extension == 'asc' }
     }
 }
